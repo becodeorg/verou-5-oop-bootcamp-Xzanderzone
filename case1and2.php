@@ -38,17 +38,3 @@ class item
     $this->discount = $discount;
   }
 }
-
-$banana = new item('banana', 1, 6, 0);
-$apple = new item('apple', 1.5, 6, 0);
-$wine = new item('wine', 10, 21, 0);
-
-echo 'classes : ' . $banana->getPrice() * 6 + $apple->getPrice() * 3 + $wine->getPrice() * 2 . 'price total <br>';
-echo $banana->getTaxPerItem() * 6 + $apple->getTaxPerItem() * 3 + $wine->getTaxPerItem() * 2 . 'tax <br>';
-
-//ex 2
-$banana->setDiscount(0.5);
-$apple->setDiscount(0.5);
-
-echo 'discount : ' . $banana->getPrice() * 6 + $apple->getPrice() * 3 + $wine->getPrice() * 2 . 'price total <br>';
-echo $banana->getTaxPerItem() * 6 + $apple->getTaxPerItem() * 3 + $wine->getTaxPerItem() * 2 . 'tax';

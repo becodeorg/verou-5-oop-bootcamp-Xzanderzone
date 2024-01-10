@@ -26,14 +26,36 @@ class group
   {
     $this->array[] = $student;
   }
-  public function removeStudent(student $student)
+  public function removeStudent(string $name)
   {
-    // unset($this->array[$student]);
+    foreach ($this->array as $i => $value) {
+      if ($name === $value->name) {
+        unset($this->array[$i]);
+        return "$name successfully removed";
+      }
+    }
+    return "no student found by this name";
+  }
+  public function getGroupAverage()
+  {
+    $total = 0;
+    $count = 0;
+    foreach ($this->array as $i) {
+      $total += $i->grade;
+      $count++;
+    }
+    ;
+    return $total / $count;
+  }
+  public function displayStudents(student $specific = null)
+  {
+    if ($specific === null) {
+      foreach ($this->array as $i) {
+        echo $i->name . ' : ' . $i->grade . '<br>';
+      }
+      echo '<br>';
+    } else {
+      echo $specific->name . ' : ' . $specific->grade . '<br>';
+    }
   }
 }
-
-$group1 = new group(new student("basile", 0));
-$group2 = new group(new student("names matter", 100));
-
-echo $group1->array[0]->name . '<br>';
-echo $group2->array[0]->name . '<br>';
