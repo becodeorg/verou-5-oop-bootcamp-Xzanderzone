@@ -11,7 +11,6 @@ class content
     $this->content = $content;
     $this->type = $type;
     $this->breakingNews = $breakingNews;
-    // setFullTitle();
   }
 
   public function getTitle(bool $original = false): string

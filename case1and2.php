@@ -38,3 +38,36 @@ class item
     $this->discount = $discount;
   }
 }
+
+//basket version...3?
+class basket
+{
+  public array $content = [];
+  public function add(item $item, int $count = 1)
+  {
+    //check if the item is in basket,change count and return
+    foreach ($this->content as &$id) {
+      if ($id['0']->name == $item->name) {
+        $id['1'] += $count;
+        if ($id['1'] < 0)
+          $id['1'] = 0;
+        return;
+      }
+    }
+    //items not in basket
+    if ($count <= 0)
+      return;
+    $this->content[] = [$item, $count];
+  }
+  public function print()
+  {
+    $total = 0;
+    echo '<ul>basket contains :<br>';
+    foreach ($this->content as $id => $item) {
+      $total += $item[0]->price * $item[1];
+      echo '<li>' . $item[0]->name . ' x' . $item[1] . ' price per: ' . $item[0]->price . '$ </li>';
+    }
+    echo '</ul>'
+      . 'Total price: ' . $total;
+  }
+}
