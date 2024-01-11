@@ -39,7 +39,7 @@ class item
   }
 }
 
-//basket version...3?
+//basket case...2.5?
 class basket
 {
   public array $content = [];
@@ -48,7 +48,7 @@ class basket
     //check if the item is in basket,change count and return
     foreach ($this->content as &$id) {
       if ($id['0']->name == $item->name) {
-        $id['1'] += $count;
+        $id['1'] += $count; //[0]is the item , 1 is the count
         if ($id['1'] < 0)
           $id['1'] = 0;
         return;

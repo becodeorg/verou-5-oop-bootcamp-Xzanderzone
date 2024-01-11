@@ -76,6 +76,31 @@ echo '<p><b>average group score</b>: ' . $group1->getGroupAverage() . '</p> <br>
 echo '<p>group two :added alex</p>';
 $group2->displayStudents();
 echo '<p><b>average group score</b>: ' . $group2->getGroupAverage() . '</p> <br>';
-// echo '<pre>';
-// print_r($group1);
-// echo '</pre>';
+
+
+
+//case overkill school class
+echo '<h1 style="color:blue">case4.5</h1>';
+echo '<h2 style="color:blue"> updating groups via "school class": </h2>';
+$becode = new school('BeCode');
+$group3 = new group('table one');
+$becode->addGroup($group3);
+$basile = new student("basile", 25);
+$group3->addStudent($basile);
+$group3->addStudent(new student("kelsey", 50));
+$group3->addStudent(new student("lucas  ", 100));
+$alex = new student("alex", 111.11);
+$group3->addStudent($alex);
+// $group3->displayStudents();
+
+$group4 = new group('table two');
+$becode->addGroup($group4);
+$group4->addStudent(new student("alec", 100));
+$group4->addStudent(new student("pieter", 200));
+$group4->addStudent(new student("mohammed", 300));
+// $group4->displayStudents();
+
+$becode->displayGroups();
+echo $becode->MoveStudent($alex, $group4, $group3);
+echo $becode->MoveStudent($basile, null, $group3);
+$becode->displayGroups();
